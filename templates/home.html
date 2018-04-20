@@ -1,0 +1,47 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Welcome {{username}}</h1> 
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<h2>All Parties You Have Hosted</h2>
+    <table>
+        <th>Title </th>
+        <th>Type </th>
+        <th>Description </th>
+        <th>Start Time </th>
+        <th>End Time </th>
+
+        {% for line in eventData %}
+        <tr>
+            <td>{{line.title}}</td>
+            <td>{{line.type_of_party}}</td>
+            <td>{{line.description}}</td>
+            <td>{{line.start_time}}</td>
+            <td>{{line.end_time}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+<h2>Create an Party!</h2>
+    <form action="/create_event" method="POST">
+        <input type="text" name="title" placeholder="party title" required /> </br>
+        <input type="text" name="type_of_party" placeholder="type of party" required /> </br>
+        <input type="text" name="description" placeholder="description" required /> </br>
+        <input type="text" name="start_time" placeholder="start_time(YYYY-MM-DD HH:MI:SS)" required /> </br>
+        <input type="text" name="end_time" placeholder="end_time(YYYY-MM-DD HH:MI:SS)" required /> </br>
+        <input type="submit" value="Create me!" />
+    </form>
+
+<a href="/logout">Logout</a>
+
+</body>
+
+
+</html>

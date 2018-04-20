@@ -1,0 +1,33 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Welcome {{username}}</h1> 
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<h2>Here is your guest information</h2>
+    <table>
+        <th>Guest Name</th>
+        <th>Email </th>
+        <th>Status </th>
+
+        {% for line in guestData %}
+        <tr>
+            <td>{{line.guest_name}}</td>
+            <td>{{line.email}}</td>
+            <td>{{line.status}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+<a href="/logout">Logout</a>
+
+</body>
+
+
+</html>
